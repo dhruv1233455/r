@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Architecture Projects - Creative Interiors</title>
+  <style>
+    body {
+      background: #f7f7f7;
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #333;
+    }
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: linear-gradient(90deg, #6a82fb 0%, #fc5c7d 100%);
+      padding: 0 40px;
+      height: 64px;
+    }
+    .logo-text {
+      color: #fff;
+      font-size: 2rem;
+      font-weight: bold;
+      letter-spacing: 1.5px;
+      line-height: 1.1;
+    }
+    nav ul {
+      display: flex;
+      gap: 30px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      position: relative;
+    }
+    nav ul li {
+      position: relative;
+    }
+    .dropdown {
+      position: relative;
+    }
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      left: 0;
+      top: 100%;
+      background: #fff;
+      min-width: 240px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.12);
+      z-index: 1000;
+      border-radius: 2px;
+      padding: 0;
+      flex-direction: column;
+      margin-top: 8px;
+    }
+    .dropdown-content a {
+      color: #888;
+      padding: 18px 24px;
+      text-decoration: none;
+      display: block;
+      font-size: 1.08rem;
+      font-weight: 500;
+      background: none;
+      border: none;
+      transition: background 0.2s, color 0.2s;
+      border-bottom: 1px solid #eee;
+      letter-spacing: 1px;
+    }
+    .dropdown-content a:last-child {
+      border-bottom: none;
+    }
+    .dropdown-content a.active, .dropdown-content a:hover {
+      background: #f7f7f7;
+      color: #6a82fb;
+      font-weight: bold;
+    }
+    .dropdown:hover .dropdown-content, .dropdown:focus-within .dropdown-content {
+      display: flex;
+    }
+    nav ul li a.projects-link {
+      color: #ffe082;
+      font-weight: bold;
+    }
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1rem;
+      letter-spacing: 1px;
+      transition: color 0.2s;
+      padding: 8px 0;
+    }
+    nav ul li a:hover, nav ul li a.active {
+      color: #6a82fb;
+      font-weight: bold;
+    }
+    .main-content {
+      max-width: 1200px;
+      margin: 48px auto 0 auto;
+      padding: 0 16px;
+    }
+    .section-title {
+      color: #6a82fb;
+      font-size: 2.2rem;
+      font-weight: bold;
+      margin-bottom: 32px;
+      letter-spacing: 1px;
+      text-align: left;
+    }
+    .projects-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 32px;
+      justify-content: flex-start;
+    }
+    .project-card {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      overflow: hidden;
+      width: 340px;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.18s, box-shadow 0.18s;
+    }
+    .project-card:hover {
+      transform: translateY(-6px) scale(1.03);
+      box-shadow: 0 8px 24px rgba(106,130,251,0.13);
+    }
+    .project-img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      background: #eee;
+      transition: box-shadow 0.2s, border 0.2s, transform 0.2s;
+      border: 3px solid transparent;
+      cursor: pointer;
+    }
+    .project-img:hover, .project-img:focus {
+      border: 3px solid #FFD700;
+      box-shadow: 0 0 0 6px rgba(255, 215, 0, 0.18);
+      transform: scale(1.04);
+      outline: none;
+    }
+    .project-info {
+      padding: 22px 20px 18px 20px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+    }
+    .project-title {
+      font-size: 1.25rem;
+      font-weight: bold;
+      color: #333;
+      margin-bottom: 10px;
+    }
+    .project-desc {
+      color: #666;
+      font-size: 1.05rem;
+      line-height: 1.5;
+    }
+    @media (max-width: 1100px) {
+      .projects-grid {
+        flex-direction: column;
+        align-items: center;
+      }
+      .project-card {
+        width: 95%;
+        max-width: 400px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="logo-text">CREATIVE INTERIORS</div>
+    <nav>
+      <ul>
+        <li><a href="index.html">HOME</a></li>
+        <li><a href="about.html">ABOUT US</a></li>
+        <li class="dropdown">
+          <a href="projects.html" class="projects-link">PROJECTS</a>
+          <div class="dropdown-content">
+            <a href="projects.html" class="active">ARCHITECTURE</a>
+            <a href="interior_design.html">INTERIOR DESIGN</a>
+            <a href="commercial_interior_design.html">COMMERCIAL INTERIOR DESIGN</a>
+          </div>
+        </li>
+        <li><a href="services.html">SERVICES</a></li>
+        <li><a href="vastu-consultancy.html">VASTU CONSULTANCY</a></li>
+        <li><a href="contact.html">CONTACT US</a></li>
+      </ul>
+    </nav>
+  </div>
+  <div class="main-content">
+    <div class="section-title">Architecture Projects</div>
+    <div class="projects-grid">
+      <div class="project-card">
+        <img class="project-img" src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80" alt="Modern Villa" tabindex="0">
+        <div class="project-info">
+          <div class="project-title">Modern Villa</div>
+          <div class="project-desc">A contemporary villa design featuring open spaces, large windows, and a seamless indoor-outdoor experience.</div>
+        </div>
+      </div>
+      <div class="project-card">
+        <img class="project-img" src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=800&q=80" alt="Urban Apartment Complex" tabindex="0">
+        <div class="project-info">
+          <div class="project-title">Urban Apartment Complex</div>
+          <div class="project-desc">A multi-storey residential complex with modern amenities, green spaces, and efficient layouts for urban living.</div>
+        </div>
+      </div>
+      <div class="project-card">
+        <img class="project-img" src="https://images.unsplash.com/photo-1501594907352-04cda38ebc29?auto=format&fit=crop&w=800&q=80" alt="Corporate Office Tower" tabindex="0">
+        <div class="project-info">
+          <div class="project-title">Corporate Office Tower</div>
+          <div class="project-desc">A high-rise office building designed for maximum daylight, energy efficiency, and a striking city presence.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer style="background: #6a82fb; color: #fff; text-align: center; padding: 32px 0 24px 0; margin-top: 48px; font-family: inherit;">
+    <div style="font-weight: bold; letter-spacing: 1px; font-size: 1.1rem; margin-bottom: 10px;">CREATIVE INTERIORS</div>
+    <div style="margin-bottom: 8px;">
+      <span style="font-size: 1.1em; vertical-align: middle;">📍</span>
+      A/307 White city building Lodha Lokhandwala Kandivali (East) Mumbai 400101
+    </div>
+    <div style="margin-bottom: 8px;">
+      <span style="font-size: 1.1em; vertical-align: middle;">📱</span>
+      9892766618, 9137665817
+    </div>
+  </footer>
+</body>
+</html> 

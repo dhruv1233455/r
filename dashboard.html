@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Creative Interior</title>
+    <meta name="description" content="Admin dashboard for Creative Interior Design website.">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #fafafa; color: #333; margin: 0; }
+        .navbar { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 1rem 0; position: fixed; width: 100%; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .nav-container { width: 90%; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
+        .logo { color: #fff; font-size: 1.5rem; text-decoration: none; font-weight: bold; }
+        .nav-links { list-style: none; display: flex; gap: 2rem; }
+        .nav-links a { color: #fff; text-decoration: none; font-size: 1rem; transition: color 0.2s; }
+        .nav-links a:hover { color: #ffd700; }
+        .main-content { width: 90%; margin: 6rem auto 2rem auto; }
+        .section-title { color: #667eea; margin-bottom: 2rem; }
+        .dashboard-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+        .dashboard-card { background: #fff; border-radius: 10px; box-shadow: 0 2px 8px rgba(102,126,234,0.08); padding: 2rem; }
+        .dashboard-card h3 { color: #764ba2; margin-bottom: 1rem; }
+        .dashboard-card form, .dashboard-card ul { margin-top: 1rem; }
+        .dashboard-card input, .dashboard-card textarea { width: 100%; padding: 0.5rem; margin-bottom: 1rem; border-radius: 5px; border: 1px solid #ccc; }
+        .dashboard-card button { background: #667eea; color: #fff; border: none; padding: 0.5rem 1.5rem; border-radius: 5px; cursor: pointer; }
+        .dashboard-card button:hover { background: #764ba2; }
+        .stat { font-size: 2rem; color: #667eea; margin: 0.5rem 0; }
+        .footer { background: #222; color: #fff; text-align: center; padding: 1rem 0; margin-top: 3rem; }
+        @media (max-width: 900px) { .dashboard-grid { grid-template-columns: 1fr; } .main-content { width: 98%; } }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-home"></i> Creative Interior
+            </a>
+            <ul class="nav-links">
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+    <!-- Main Content -->
+    <div class="main-content">
+        <h2 class="section-title">Admin Dashboard</h2>
+        <div class="dashboard-grid">
+            <!-- Add Home Makeover Photos -->
+            <div class="dashboard-card">
+                <h3><i class="fas fa-image"></i> Add New Home Makeover Photo</h3>
+                <form>
+                    <input type="text" placeholder="Project Name" disabled>
+                    <input type="file" disabled>
+                    <textarea placeholder="Description" rows="3" disabled></textarea>
+                    <button type="button" disabled>Add Photo</button>
+                    <p style="color: #888; font-size: 0.95rem;">(Feature demo only in static version)</p>
+                </form>
+            </div>
+            <!-- Post Blogs -->
+            <div class="dashboard-card">
+                <h3><i class="fas fa-blog"></i> Post a Blog</h3>
+                <form>
+                    <input type="text" placeholder="Blog Title" disabled>
+                    <textarea placeholder="Blog Content" rows="4" disabled></textarea>
+                    <button type="button" disabled>Post Blog</button>
+                    <p style="color: #888; font-size: 0.95rem;">(Feature demo only in static version)</p>
+                </form>
+            </div>
+            <!-- View Client Inquiries -->
+            <div class="dashboard-card">
+                <h3><i class="fas fa-envelope"></i> Client Inquiries</h3>
+                <ul>
+                    <li><strong>Priya S.:</strong> Interested in kitchen makeover. <span style="color: #aaa;">(2 days ago)</span></li>
+                    <li><strong>Rahul M.:</strong> Wants office design ideas. <span style="color: #aaa;">(4 days ago)</span></li>
+                    <li><strong>Neha K.:</strong> Asked about color consultation. <span style="color: #aaa;">(5 days ago)</span></li>
+                </ul>
+            </div>
+            <!-- Website Visits -->
+            <div class="dashboard-card">
+                <h3><i class="fas fa-chart-line"></i> Website Visits This Week</h3>
+                <div class="stat">238</div>
+                <p style="color: #888;">(Static demo number)</p>
+            </div>
+        </div>
+    </div>
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2024 Creative Interior Design. All rights reserved.</p>
+    </footer>
+</body>
+</html> 

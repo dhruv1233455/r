@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Services - Creative Interiors</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      background: #fff;
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: linear-gradient(90deg, #6a82fb 0%, #fc5c7d 100%);
+      padding: 0 40px;
+      height: 64px;
+      position: relative;
+    }
+    .logo-text {
+      color: #fff;
+      font-size: 2rem;
+      font-weight: bold;
+      letter-spacing: 1.5px;
+      line-height: 1.1;
+    }
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 40px;
+      height: 40px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      z-index: 1001;
+    }
+    .nav-toggle span {
+      display: block;
+      width: 28px;
+      height: 4px;
+      margin: 4px 0;
+      background: #fff;
+      border-radius: 2px;
+      transition: 0.3s;
+    }
+    nav ul {
+      display: flex;
+      gap: 30px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      transition: right 0.3s;
+    }
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1rem;
+      letter-spacing: 1px;
+      transition: color 0.2s;
+      padding: 8px 0;
+    }
+    nav ul li a:hover, nav ul li a.active {
+      color: #6a82fb;
+      font-weight: bold;
+    }
+    .hero {
+      position: relative;
+      width: 100%;
+      min-height: 480px;
+      background: url('https://images.unsplash.com/photo-1519710164239-da123dc03ef4?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .hero-overlay {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(40,40,40,0.45);
+      z-index: 1;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      width: 100%;
+      max-width: 1200px;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding: 60px 32px 40px 32px;
+    }
+    .hero-left {
+      color: #fff;
+      max-width: 520px;
+      margin-top: 40px;
+    }
+    .hero-left h1 {
+      font-size: 2.6rem;
+      font-weight: bold;
+      margin-bottom: 18px;
+      letter-spacing: 1px;
+    }
+    .hero-left p {
+      font-size: 1.2rem;
+      margin-bottom: 0;
+      color: #f8f8f8;
+    }
+    .hero-form {
+      background: #fff;
+      border-radius: 22px;
+      box-shadow: 0 4px 32px rgba(0,0,0,0.10);
+      padding: 36px 32px 28px 32px;
+      min-width: 340px;
+      max-width: 370px;
+      margin-left: 32px;
+      margin-top: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+    }
+    .hero-form h2 {
+      color: #6a82fb;
+      font-size: 1.3rem;
+      font-weight: bold;
+      text-align: center;
+      margin-bottom: 18px;
+      letter-spacing: 1px;
+    }
+    .hero-form input[type="text"],
+    .hero-form input[type="email"] {
+      padding: 12px 14px;
+      border: 1.5px solid #ddd;
+      border-radius: 8px;
+      margin-bottom: 16px;
+      font-size: 1rem;
+      outline: none;
+      transition: border 0.2s;
+    }
+    .hero-form input[type="text"]:focus,
+    .hero-form input[type="email"]:focus {
+      border: 1.5px solid #6a82fb;
+    }
+    .hero-form label {
+      font-size: 0.98rem;
+      color: #444;
+      margin-bottom: 6px;
+      display: block;
+    }
+    .hero-form .checkbox {
+      display: flex;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+    .hero-form .checkbox input {
+      margin-right: 8px;
+    }
+    .hero-form button {
+      background: #6a82fb;
+      color: #fff;
+      border: none;
+      border-radius: 24px;
+      padding: 14px 0;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: background 0.2s;
+    }
+    .hero-form button:hover {
+      background: #fc5c7d;
+      color: #fff;
+    }
+    .services-bar {
+      width: 100%;
+      background: #969696;
+      color: #6a82fb;
+      text-align: center;
+      font-size: 1.35rem;
+      font-weight: bold;
+      letter-spacing: 2px;
+      padding: 22px 0 18px 0;
+      margin-top: 0;
+    }
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+    .dropbtn {
+      cursor: pointer;
+    }
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background: #fff;
+      min-width: 220px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.12);
+      z-index: 1000;
+      margin-top: 8px;
+      border-radius: 2px;
+      padding: 8px 0;
+      flex-direction: column;
+    }
+    .dropdown-content a {
+      color: #444;
+      padding: 16px 18px;
+      text-decoration: none;
+      display: block;
+      font-size: 1.08rem;
+      font-weight: 500;
+      background: none;
+      border: none;
+      transition: background 0.2s, color 0.2s;
+      border-bottom: 1px solid #eee;
+    }
+    .dropdown-content a:last-child {
+      border-bottom: none;
+    }
+    .dropdown-content a.active, .dropdown-content a:hover {
+      background: #f7f7f7;
+      color: #6a82fb;
+      font-weight: bold;
+    }
+    .dropdown:hover .dropdown-content {
+      display: flex;
+    }
+    .mobile-menu-overlay {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.45);
+      z-index: 2000;
+      transition: opacity 0.3s;
+    }
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 0; right: 0;
+      width: 85vw;
+      max-width: 340px;
+      height: 100vh;
+      background: #fff;
+      box-shadow: -2px 0 16px rgba(0,0,0,0.12);
+      z-index: 2100;
+      flex-direction: column;
+      padding: 32px 0 0 0;
+      animation: slideIn 0.3s;
+    }
+    @keyframes slideIn {
+      from { right: -100vw; }
+      to { right: 0; }
+    }
+    .mobile-menu .close-btn {
+      position: absolute;
+      top: 18px;
+      right: 22px;
+      font-size: 2.2rem;
+      color: #444;
+      background: none;
+      border: none;
+      cursor: pointer;
+      z-index: 2200;
+    }
+    .mobile-menu ul {
+      list-style: none;
+      padding: 0 0 0 32px;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .mobile-menu ul li a {
+      color: #444;
+      text-decoration: none;
+      font-size: 1.18rem;
+      font-weight: 500;
+      padding: 18px 0;
+      border-bottom: 1px solid #eee;
+      display: block;
+      transition: background 0.2s, color 0.2s;
+    }
+    .mobile-menu ul li a.active, .mobile-menu ul li a:hover {
+      color: #6a82fb;
+      background: #f7f7f7;
+      font-weight: bold;
+    }
+    @media (max-width: 900px) {
+      .hero-content {
+        flex-direction: column;
+        align-items: center;
+        padding: 40px 8px 24px 8px;
+      }
+      .hero-form {
+        margin-left: 0;
+        margin-top: 32px;
+        min-width: 90vw;
+        max-width: 98vw;
+      }
+      .hero-left {
+        margin-top: 0;
+        text-align: center;
+      }
+      .dropdown-content {
+        position: static;
+        min-width: 100%;
+        box-shadow: none;
+        margin-top: 0;
+      }
+      .nav-toggle { display: flex; }
+      nav { display: none; }
+      .mobile-menu, .mobile-menu-overlay { display: block; }
+    }
+    @media (max-width: 600px) {
+      .hero-content {
+        padding: 24px 2vw 16px 2vw;
+      }
+      .hero-left h1 {
+        font-size: 1.5rem;
+      }
+      .hero-form {
+        min-width: 98vw;
+        max-width: 100vw;
+        padding: 18px 8px 14px 8px;
+      }
+      .services-bar {
+        font-size: 1rem;
+        padding: 14px 0 10px 0;
+      }
+      section[style] {
+        padding: 0 2vw !important;
+      }
+      footer {
+        font-size: 0.98rem !important;
+        padding: 18px 0 12px 0 !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="logo-text">CREATIVE INTERIORS</div>
+    <button class="nav-toggle" aria-label="Open navigation" onclick="openMobileMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <nav>
+      <ul>
+        <li><a href="index.html">HOME</a></li>
+        <li><a href="about.html">ABOUT US</a></li>
+        <li class="dropdown">
+          <a href="projects.html" class="dropbtn">PROJECTS</a>
+          <div class="dropdown-content">
+            <a href="projects.html" class="active" style="background: #ffe042; color: #444; font-weight: bold;">ARCHITECTURE</a>
+            <a href="interior_design.html">INTERIOR DESIGN</a>
+            <a href="commercial_interior_design.html">COMMERCIAL INTERIOR DESIGN</a>
+          </div>
+        </li>
+        <li><a href="services.html">SERVICES</a></li>
+        <li><a href="vastu-consultancy.html">VASTU CONSULTANCY</a></li>
+        <li><a href="contact.html">CONTACT US</a></li>
+      </ul>
+    </nav>
+  </div>
+  <div class="mobile-menu-overlay" id="mobileMenuOverlay" onclick="closeMobileMenu()"></div>
+  <div class="mobile-menu" id="mobileMenu">
+    <button class="close-btn" aria-label="Close navigation" onclick="closeMobileMenu()">&times;</button>
+    <ul>
+      <li><a href="index.html">HOME</a></li>
+      <li><a href="about.html">ABOUT US</a></li>
+      <li><a href="projects.html">PROJECTS</a></li>
+      <li style="padding-left:18px;"><a href="projects.html">ARCHITECTURE</a></li>
+      <li style="padding-left:18px;"><a href="interior_design.html">INTERIOR DESIGN</a></li>
+      <li style="padding-left:18px;"><a href="commercial_interior_design.html">COMMERCIAL INTERIOR DESIGN</a></li>
+      <li><a href="services.html">SERVICES</a></li>
+      <li><a href="achievements.html">ACHIEVEMENTS</a></li>
+      <li><a href="testimonial.html">TESTIMONIAL</a></li>
+      <li><a href="vastu-consultancy.html">VASTU CONSULTANCY</a></li>
+      <li><a href="contact.html">CONTACT US</a></li>
+    </ul>
+  </div>
+  <div class="hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <div class="hero-left">
+        <h1>About Our Best Services</h1>
+        <p>Elevating Spaces, Enriching Lives: Your Vision, Our Design.</p>
+      </div>
+      <form class="hero-form">
+        <h2>TALK TO OUR TEAM</h2>
+        <input type="text" placeholder="Your Name*" required>
+        <input type="email" placeholder="Mail Address*" required>
+        <input type="text" placeholder="Your 10 Digits Mobile Number*" required>
+        <div class="checkbox">
+          <input type="checkbox" id="whatsapp">
+          <label for="whatsapp" style="margin:0;">Send me updates on WhatsApp</label>
+        </div>
+        <input type="text" placeholder="Property Name*" required>
+        <button type="submit">INQUIRE NOW</button>
+      </form>
+    </div>
+  </div>
+  <div class="services-bar">
+    WE PROVIDE SERVICES ARCHITECTURE | INTERIOR DESIGNING | VASTU CONSULTANCY
+  </div>
+  <section style="max-width: 1100px; margin: 48px auto 0 auto; padding: 0 16px;">
+    <h2 style="text-align:center; color:#6a82fb; font-size:2rem; font-weight:bold; margin-bottom:32px;">How We Work</h2>
+    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 40px;">
+      <div style="flex:1; min-width:240px; max-width:320px; background:#fff; border-radius:14px; box-shadow:0 2px 8px rgba(106,130,251,0.08); padding:32px 24px; text-align:center;">
+        <div style="font-size:2.5rem; color:#6a82fb; margin-bottom:16px;">&#128172;</div>
+        <div style="font-weight:bold; font-size:1.15rem; margin-bottom:10px;">Consultation</div>
+        <div style="color:#555; font-size:1rem;">We start by understanding your needs, style, and vision for your space. Our team listens and offers expert advice to set the foundation for your project.</div>
+      </div>
+      <div style="flex:1; min-width:240px; max-width:320px; background:#fff; border-radius:14px; box-shadow:0 2px 8px rgba(106,130,251,0.08); padding:32px 24px; text-align:center;">
+        <div style="font-size:2.5rem; color:#6a82fb; margin-bottom:16px;">&#128736;&#65039;</div>
+        <div style="font-weight:bold; font-size:1.15rem; margin-bottom:10px;">Design & Planning</div>
+        <div style="color:#555; font-size:1rem;">We create detailed designs and plans, selecting materials, colors, and layouts that bring your vision to life while staying within your budget.</div>
+      </div>
+      <div style="flex:1; min-width:240px; max-width:320px; background:#fff; border-radius:14px; box-shadow:0 2px 8px rgba(106,130,251,0.08); padding:32px 24px; text-align:center;">
+        <div style="font-size:2.5rem; color:#6a82fb; margin-bottom:16px;">&#128295;</div>
+        <div style="font-weight:bold; font-size:1.15rem; margin-bottom:10px;">Execution & Delivery</div>
+        <div style="color:#555; font-size:1rem;">Our skilled team manages the entire process, ensuring quality workmanship and timely completion. We deliver a space that exceeds your expectations.</div>
+      </div>
+    </div>
+  </section>
+  <footer style="background: #6a82fb; color: #fff; text-align: center; padding: 32px 0 24px 0; margin-top: 48px; font-family: inherit;">
+    <div style="font-weight: bold; letter-spacing: 1px; font-size: 1.1rem; margin-bottom: 10px;">CREATIVE INTERIORS</div>
+    <div style="margin-bottom: 8px;">
+      <span style="font-size: 1.1em; vertical-align: middle;">📍</span>
+      A/307 White city building Lodha Lokhandwala Kandivali (East) Mumbai 400101
+    </div>
+    <div style="margin-bottom: 8px;">
+      <span style="font-size: 1.1em; vertical-align: middle;">📱</span>
+      9892766618, 9137665817
+    </div>
+  </footer>
+  <script>
+    function openMobileMenu() {
+      document.getElementById('mobileMenu').style.right = '0';
+      document.getElementById('mobileMenuOverlay').style.display = 'block';
+      document.body.style.overflow = 'hidden';
+    }
+    function closeMobileMenu() {
+      document.getElementById('mobileMenu').style.right = '-100vw';
+      document.getElementById('mobileMenuOverlay').style.display = 'none';
+      document.body.style.overflow = '';
+    }
+    // Ensure menu is hidden on resize to desktop
+    window.addEventListener('resize', function() {
+      if(window.innerWidth > 900) closeMobileMenu();
+    });
+  </script>
+</body>
+</html> 

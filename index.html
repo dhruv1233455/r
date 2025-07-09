@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Creative Interiors - Home</title>
+  <style>
+    body {
+      background: #fafafa;
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #222;
+    }
+    .navbar {
+      background: linear-gradient(90deg, #6a82fb 0%, #fc5c7d 100%);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 40px;
+      height: 64px;
+    }
+    .logo-box {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+    .logo-img {
+      width: 56px;
+      height: 56px;
+      background: #FFD700;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      font-weight: bold;
+      color: #6a82fb;
+      margin-right: 8px;
+    }
+    .logo-text {
+      color: #fff;
+      font-size: 2rem;
+      font-weight: bold;
+      letter-spacing: 2px;
+      line-height: 1.1;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    nav ul {
+      display: flex;
+      gap: 30px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      position: relative;
+    }
+    nav ul li {
+      position: relative;
+    }
+    .dropdown {
+      position: relative;
+    }
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      left: 0;
+      top: 100%;
+      background: #fff;
+      min-width: 240px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.12);
+      z-index: 1000;
+      border-radius: 2px;
+      padding: 0;
+      flex-direction: column;
+      margin-top: 8px;
+    }
+    .dropdown-content a {
+      color: #888;
+      padding: 18px 24px;
+      text-decoration: none;
+      display: block;
+      font-size: 1.08rem;
+      font-weight: 500;
+      background: none;
+      border: none;
+      transition: background 0.2s, color 0.2s;
+      border-bottom: 1px solid #eee;
+      letter-spacing: 1px;
+    }
+    .dropdown-content a:last-child {
+      border-bottom: none;
+    }
+    .dropdown-content a.active, .dropdown-content a:hover {
+      background: #f7f7f7;
+      color: #6a82fb;
+      font-weight: bold;
+    }
+    .dropdown:hover .dropdown-content {
+      display: flex;
+    }
+    nav ul li a.projects-link {
+      color: #ffe082;
+      font-weight: bold;
+    }
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1rem;
+      letter-spacing: 1px;
+      transition: color 0.2s;
+      padding: 8px 0;
+    }
+    nav ul li a:hover, nav ul li a.active {
+      color: #6a82fb;
+      font-weight: bold;
+    }
+    .main-cards-row {
+      display: flex;
+      gap: 32px;
+      justify-content: center;
+      margin: 36px 0 0 0;
+      padding: 0 32px;
+    }
+    .main-card {
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.10);
+      overflow: hidden;
+      width: 32%;
+      min-width: 320px;
+      max-width: 420px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 0;
+    }
+    .main-card img {
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+      background: #eee;
+      display: block;
+      transition: box-shadow 0.2s, border 0.2s, transform 0.2s;
+      border: 3px solid transparent;
+      cursor: pointer;
+    }
+    .main-card img:hover, .main-card img:focus {
+      border: 3px solid #FFD700;
+      box-shadow: 0 0 0 6px rgba(255, 215, 0, 0.18);
+      transform: scale(1.04);
+      outline: none;
+    }
+    .main-card-label {
+      color: #222;
+      font-size: 1.35rem;
+      font-weight: 500;
+      letter-spacing: 2px;
+      text-align: center;
+      padding: 18px 0 18px 0;
+      background: #fff;
+      width: 100%;
+      border-top: 1px solid #eee;
+    }
+    .welcome-section {
+      margin: 38px auto 0 auto;
+      max-width: 1100px;
+      text-align: center;
+    }
+    .welcome-title {
+      color: #FFD700;
+      font-size: 1.35rem;
+      font-weight: bold;
+      margin-bottom: 12px;
+      letter-spacing: 1px;
+    }
+    .welcome-desc {
+      color: #444;
+      font-size: 1.08rem;
+      margin-bottom: 18px;
+      line-height: 1.7;
+    }
+    .yellow-btn {
+      background: #6a82fb;
+      color: #fff;
+      font-size: 1.18rem;
+      font-weight: bold;
+      border: none;
+      border-radius: 12px;
+      padding: 18px 38px;
+      margin-top: 18px;
+      cursor: pointer;
+      transition: background 0.2s;
+      letter-spacing: 1px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+    .yellow-btn:hover {
+      background: #fc5c7d;
+      color: #fff;
+    }
+    .read-more-btn {
+      background: #fff;
+      color: #6a82fb;
+      font-size: 1.08rem;
+      font-weight: bold;
+      border: none;
+      border-radius: 8px;
+      padding: 12px 32px;
+      margin-top: 18px;
+      cursor: pointer;
+      transition: background 0.2s;
+      margin-left: 18px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+    .read-more-btn:hover {
+      background: #fc5c7d;
+      color: #fff;
+    }
+    .social-float {
+      position: fixed;
+      right: 24px;
+      bottom: 120px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      z-index: 1002;
+    }
+    .social-float a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: #fff;
+      color: #6a82fb;
+      font-size: 1.7rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+      text-decoration: none;
+      transition: background 0.2s, color 0.2s;
+    }
+    .social-float a:hover {
+      background: #FFD700;
+      color: #fff;
+    }
+    .contact-float {
+      position: fixed;
+      right: 24px;
+      bottom: 48px;
+      z-index: 1002;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .contact-float-btn {
+      background: #FFD700;
+      color: #222;
+      font-size: 1.1rem;
+      font-weight: bold;
+      border: none;
+      border-radius: 8px;
+      padding: 12px 24px 12px 48px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+      position: relative;
+      transition: background 0.2s, color 0.2s;
+    }
+    .contact-float-btn:hover {
+      background: #ffe082;
+      color: #222;
+    }
+    .contact-float-btn .icon {
+      position: absolute;
+      left: 16px;
+      font-size: 1.3rem;
+    }
+    .mobile-menu-overlay {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.45);
+      z-index: 2000;
+      transition: opacity 0.3s;
+    }
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 0; right: 0;
+      width: 85vw;
+      max-width: 340px;
+      height: 100vh;
+      background: #fff;
+      box-shadow: -2px 0 16px rgba(0,0,0,0.12);
+      z-index: 2100;
+      flex-direction: column;
+      padding: 32px 0 0 0;
+      animation: slideIn 0.3s;
+    }
+    @keyframes slideIn {
+      from { right: -100vw; }
+      to { right: 0; }
+    }
+    .mobile-menu .close-btn {
+      position: absolute;
+      top: 18px;
+      right: 22px;
+      font-size: 2.2rem;
+      color: #444;
+      background: none;
+      border: none;
+      cursor: pointer;
+      z-index: 2200;
+    }
+    .mobile-menu ul {
+      list-style: none;
+      padding: 0 0 0 32px;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .mobile-menu ul li a {
+      color: #444;
+      text-decoration: none;
+      font-size: 1.18rem;
+      font-weight: 500;
+      padding: 18px 0;
+      border-bottom: 1px solid #eee;
+      display: block;
+      transition: background 0.2s, color 0.2s;
+    }
+    .mobile-menu ul li a.active, .mobile-menu ul li a:hover {
+      color: #6a82fb;
+      background: #f7f7f7;
+      font-weight: bold;
+    }
+    @media (max-width: 1100px) {
+      .main-cards-row {
+        flex-direction: column;
+        align-items: center;
+        gap: 24px;
+      }
+      .main-card {
+        width: 90%;
+        min-width: 220px;
+        max-width: 500px;
+      }
+    }
+    @media (max-width: 700px) {
+      .navbar {
+        padding: 0 10px;
+        height: auto;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .main-cards-row {
+        padding: 0 2vw;
+        gap: 16px;
+      }
+      .main-card {
+        width: 100%;
+        min-width: 0;
+        max-width: 100vw;
+        margin-bottom: 18px;
+      }
+      .main-card img {
+        height: auto;
+        max-width: 100%;
+        aspect-ratio: 1.2/1;
+      }
+      .logo-text {
+        font-size: 1.2rem;
+      }
+    }
+    @media (max-width: 900px) {
+      .nav-toggle { display: flex; }
+      nav { display: none; }
+      .mobile-menu, .mobile-menu-overlay { display: block; }
+    }
+  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+  <div class="navbar">
+    <div class="logo-box">
+      <div class="logo-img"><span style="font-size:2rem;">&#9633;</span></div>
+      <div class="logo-text">CREATIVE INTERIORS</div>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html" class="active">HOME</a></li>
+        <li><a href="about.html">ABOUT US</a></li>
+        <li class="dropdown">
+          <a href="projects.html" class="projects-link">PROJECTS</a>
+          <div class="dropdown-content">
+            <a href="projects.html">ARCHITECTURE</a>
+            <a href="interior_design.html">INTERIOR DESIGN</a>
+            <a href="commercial_interior_design.html">COMMERCIAL INTERIOR DESIGN</a>
+          </div>
+        </li>
+        <li><a href="services.html">SERVICES</a></li>
+        <li><a href="vastu-consultancy.html">VASTU CONSULTANCY</a></li>
+        <li><a href="contact.html">CONTACT US</a></li>
+      </ul>
+    </nav>
+  </div>
+  <div class="main-cards-row">
+    <div class="main-card">
+      <img src="https://images.unsplash.com/photo-1503389152951-9c3d029fd6a0?auto=format&fit=crop&w=800&q=80" alt="Architecture Blueprint" tabindex="0">
+      <div class="main-card-label">ARCHITECTURE DESIGN</div>
+    </div>
+    <div class="main-card">
+      <img src="https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?auto=format&fit=crop&w=800&q=80" alt="Interior Design" tabindex="0">
+      <div class="main-card-label">INTERIOR DESIGN</div>
+    </div>
+    <div class="main-card">
+      <img src="https://images.unsplash.com/photo-1460518451285-97b6aa326961?auto=format&fit=crop&w=800&q=80" alt="Vastu Consultancy" tabindex="0">
+      <div class="main-card-label">VASTU CONSULTANCY</div>
+    </div>
+  </div>
+  <div class="welcome-section">
+    <div class="welcome-title">Welcome to CREATIVE INTERIORS!!!</div>
+    <div class="welcome-desc">
+      CREATIVE INTERIORS is a multifaceted architectural and interior design practice based in Mumbai. The team brings expertise and creativity to every project, with a collaborative approach and dedication to excellence. Creative Interiors is recognized as a trusted name in innovative and client-focused design solutions.
+    </div>
+    <button class="yellow-btn">What Our Clients Say</button>
+    <button class="read-more-btn">Read More...</button>
+  </div>
+  <!-- What Our Clients Say Section -->
+  <div style="background:#fafbfc;padding:40px 0 60px 0;">
+    <h2 style="text-align:center;font-size:2.2rem;font-weight:bold;color:#222;margin-bottom:32px;">What Our Clients Say</h2>
+    <div style="display:flex;justify-content:center;gap:32px;flex-wrap:wrap;max-width:1200px;margin:0 auto;">
+      <div style="background:#fff;border-radius:18px;box-shadow:0 2px 16px rgba(0,0,0,0.10);padding:32px 28px;max-width:350px;min-width:260px;flex:1;margin:12px;text-align:left;display:flex;flex-direction:column;align-items:flex-start;">
+        <div style="font-size:2rem;color:#6a82fb;text-align:center;width:100%;margin-bottom:12px;"><i class='fas fa-quote-left'></i></div>
+        <div style="font-size:1.08rem;color:#222;margin-bottom:18px;">"Creative Interiors transformed our living room into a beautiful, modern space. The attention to detail and professionalism were outstanding!"</div>
+        <div style="font-weight:bold;color:#4a5cff;font-size:1rem;">- Shekhar Maurya, Homeowner</div>
+      </div>
+      <div style="background:#fff;border-radius:18px;box-shadow:0 2px 16px rgba(0,0,0,0.10);padding:32px 28px;max-width:350px;min-width:260px;flex:1;margin:12px;text-align:left;display:flex;flex-direction:column;align-items:flex-start;">
+        <div style="font-size:2rem;color:#6a82fb;text-align:center;width:100%;margin-bottom:12px;"><i class='fas fa-quote-left'></i></div>
+        <div style="font-size:1.08rem;color:#222;margin-bottom:18px;">"The team at Creative Interiors exceeded our expectations. They delivered a stunning office space that perfectly matched our vision."</div>
+        <div style="font-weight:bold;color:#4a5cff;font-size:1rem;">- Rajan Singh, Business Owner</div>
+      </div>
+      <div style="background:#fff;border-radius:18px;box-shadow:0 2px 16px rgba(0,0,0,0.10);padding:32px 28px;max-width:350px;min-width:260px;flex:1;margin:12px;text-align:left;display:flex;flex-direction:column;align-items:flex-start;">
+        <div style="font-size:2rem;color:#6a82fb;text-align:center;width:100%;margin-bottom:12px;"><i class='fas fa-quote-left'></i></div>
+        <div style="font-size:1.08rem;color:#222;margin-bottom:18px;">"Professional, creative, and reliable. Our kitchen renovation was completed on time and within budget. The result is absolutely beautiful!"</div>
+        <div style="font-weight:bold;color:#4a5cff;font-size:1rem;">- Vivek Mishra, Homeowner</div>
+      </div>
+    </div>
+  </div>
+  <div class="social-float">
+    <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+    <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+    <a href="#" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+  </div>
+  <div class="contact-float">
+    <button class="contact-float-btn"><span class="icon"><i class="fas fa-envelope"></i></span>Contact Us</button>
+  </div>
+  <!-- Footer Section -->
+  <footer style="background:#6a82fb;padding:38px 0 28px 0;margin-top:40px;">
+    <div style="text-align:center;color:#fff;font-weight:bold;font-size:1.35rem;letter-spacing:1px;">CREATIVE INTERIORS</div>
+    <div style="text-align:center;color:#fff;margin-top:10px;font-size:1.08rem;">
+      <span style="margin-right:8px;"><i class="fas fa-map-marker-alt" style="color:#ff4d4d;"></i></span>
+      A/307 White city building Lodha Lokhandwala Kandivali (East) Mumbai 400101
+    </div>
+    <div style="text-align:center;color:#fff;margin-top:10px;font-size:1.08rem;">
+      <span style="margin-right:8px;"><i class="fas fa-phone-alt" style="color:#ffe082;"></i></span>
+      9892766618, 9137665817
+    </div>
+  </footer>
+  <script>
+    function openMobileMenu() {
+      document.getElementById('mobileMenu').style.right = '0';
+      document.getElementById('mobileMenuOverlay').style.display = 'block';
+      document.body.style.overflow = 'hidden';
+    }
+    function closeMobileMenu() {
+      document.getElementById('mobileMenu').style.right = '-100vw';
+      document.getElementById('mobileMenuOverlay').style.display = 'none';
+      document.body.style.overflow = '';
+    }
+    // Ensure menu is hidden on resize to desktop
+    window.addEventListener('resize', function() {
+      if(window.innerWidth > 900) closeMobileMenu();
+    });
+  </script>
+</body>
+</html> 

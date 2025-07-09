@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Commercial Interior Design - Creative Interiors</title>
+  <style>
+    body {
+      background: #fff;
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: linear-gradient(90deg, #6a82fb 0%, #fc5c7d 100%);
+      padding: 0 40px;
+      height: 64px;
+    }
+    .logo-text {
+      color: #fff;
+      font-size: 2rem;
+      font-weight: bold;
+      letter-spacing: 1.5px;
+      line-height: 1.1;
+    }
+    nav ul {
+      display: flex;
+      gap: 30px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1rem;
+      letter-spacing: 1px;
+      transition: color 0.2s;
+      padding: 8px 0;
+    }
+    nav ul li a:hover {
+      color: #ffe082;
+    }
+    .main-content {
+      max-width: 1200px;
+      margin: 40px auto 0 auto;
+      padding: 0 16px;
+    }
+    h1, h2 {
+      text-align: center;
+      color: #222;
+      font-family: inherit;
+    }
+    .project-cards {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 32px;
+      margin: 40px 0;
+    }
+    .project-card {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(106,130,251,0.08);
+      padding: 24px;
+      max-width: 340px;
+      text-align: center;
+      transition: box-shadow 0.3s, transform 0.3s;
+    }
+    .project-card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 16px;
+      background: #eee;
+      transition: box-shadow 0.3s, transform 0.3s;
+    }
+    .project-card img:hover {
+      box-shadow: 0 8px 32px rgba(106,130,251,0.25), 0 2px 8px rgba(0,0,0,0.08);
+      transform: scale(1.04);
+      cursor: pointer;
+    }
+    .project-card-title {
+      font-weight: bold;
+      margin-bottom: 8px;
+      color: #222;
+    }
+    .project-card-desc {
+      color: #666;
+      font-size: 0.98rem;
+    }
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+    .dropbtn {
+      cursor: pointer;
+    }
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background: #fff;
+      min-width: 220px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.12);
+      z-index: 1000;
+      margin-top: 8px;
+      border-radius: 2px;
+      padding: 8px 0;
+      flex-direction: column;
+    }
+    .dropdown-content a {
+      color: #444;
+      padding: 16px 18px;
+      text-decoration: none;
+      display: block;
+      font-size: 1.08rem;
+      font-weight: 500;
+      background: none;
+      border: none;
+      transition: background 0.2s, color 0.2s;
+      border-bottom: 1px solid #eee;
+    }
+    .dropdown-content a:last-child {
+      border-bottom: none;
+    }
+    .dropdown-content a.active, .dropdown-content a:hover {
+      background: #ffe042;
+      color: #444;
+      font-weight: bold;
+    }
+    .dropdown:hover .dropdown-content {
+      display: flex;
+    }
+    @media (max-width: 900px) {
+      .dropdown-content {
+        position: static;
+        min-width: 100%;
+        box-shadow: none;
+        margin-top: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="logo-text">CREATIVE INTERIORS</div>
+    <nav>
+      <ul>
+        <li><a href="index.html">HOME</a></li>
+        <li><a href="about.html">ABOUT US</a></li>
+        <li class="dropdown">
+          <a href="projects.html" class="dropbtn">PROJECTS</a>
+          <div class="dropdown-content">
+            <a href="projects.html" class="active" style="background: #ffe042; color: #444; font-weight: bold;">ARCHITECTURE</a>
+            <a href="interior_design.html">INTERIOR DESIGN</a>
+            <a href="commercial_interior_design.html">COMMERCIAL INTERIOR DESIGN</a>
+          </div>
+        </li>
+        <li><a href="services.html">SERVICES</a></li>
+        <li><a href="vastu-consultancy.html">VASTU CONSULTANCY</a></li>
+        <li><a href="contact.html">CONTACT US</a></li>
+      </ul>
+    </nav>
+  </div>
+  <div class="main-content">
+    <h1>Commercial Interior Design Projects</h1>
+    <p style="text-align:center;">Explore our completed office and commercial space interiors, designed for productivity and style.</p>
+    <h2 style="margin-top:40px;">OFFICE SPACE INTERIORS</h2>
+    <div class="project-cards">
+      <div class="project-card">
+        <img src="https://images.unsplash.com/photo-1460518451285-97b6aa326961?auto=format&fit=crop&w=400&q=80" alt="Modern Office">
+        <div class="project-card-title">Modern Office</div>
+        <div class="project-card-desc">A sleek, open-plan office designed for collaboration and comfort.</div>
+      </div>
+      <div class="project-card">
+        <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80" alt="Creative Workspace">
+        <div class="project-card-title">Creative Workspace</div>
+        <div class="project-card-desc">A vibrant workspace that inspires creativity and productivity.</div>
+      </div>
+      <div class="project-card">
+        <img src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=400&q=80" alt="Executive Boardroom">
+        <div class="project-card-title">Executive Boardroom</div>
+        <div class="project-card-desc">A sophisticated boardroom with modern amenities and elegant design.</div>
+      </div>
+    </div>
+  </div>
+  <footer style="background: #6a82fb; color: #fff; text-align: center; padding: 32px 0 24px 0; margin-top: 48px; font-family: inherit;">
+    <div style="font-weight: bold; letter-spacing: 1px; font-size: 1.1rem; margin-bottom: 10px;">CREATIVE INTERIORS</div>
+    <div style="margin-bottom: 8px;">
+      <span style="font-size: 1.1em; vertical-align: middle;">📍</span>
+      A/307 White city building Lodha Lokhandwala Kandivali (East) Mumbai 400101
+    </div>
+    <div style="margin-bottom: 8px;">
+      <span style="font-size: 1.1em; vertical-align: middle;">📱</span>
+      9892766618, 9137665817
+    </div>
+  </footer>
+</body>
+</html> 
